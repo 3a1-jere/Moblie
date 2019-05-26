@@ -53,14 +53,24 @@ public class HomeForm {
         f.add(star7);
         f.add(coupon);
         
+       
+        
          f.getToolbar().addCommandToOverflowMenu("Mon panier", null, (ev)->{AfficherPanier a=new AfficherPanier(t);
                    
           a.getF().show();
           });
-           f.getToolbar().addCommandToOverflowMenu("Mes commandes", null, (ev)->{    AfficherCommande a=new AfficherCommande(t);
+         f.getToolbar().addCommandToOverflowMenu("Mes commandes", null, (ev)->{    AfficherCommande a=new AfficherCommande(t);
                    
           a.getF().show();
           });
+         f.getToolbar().addCommandToOverflowMenu("Se déconnecter", null, (ev)->{Accueil a=new Accueil();
+                
+           a.getF().show();
+          });
+         
+           
+           
+            
         
          Toolbar.setGlobalToolbar(true);
 

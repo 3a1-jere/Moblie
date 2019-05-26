@@ -54,17 +54,19 @@ public class Welcome {
     
     public Welcome(Membre t)
           {    
-f = new Form("home");
-
-Afficher_btn = new Button("La Liste des Astuces");
-ajouter_btn = new Button("Ajouter Une Astuce");
+f = new Form("Astuces");
+Label l3 = new Label("\n\n");
+Afficher_btn = new Button("La Liste des Astuces ");
+ajouter_btn = new Button("Ajouter Une Astuce ");
 mail = new Button("Avertir ");
 Button btn_supprimer= new Button("Supprimer");
 TextField confirme = new TextField();
 Label l = new Label("Donner L'ID de l'astuce");
 Label l2 = new Label("Donner Le titre de l'astuce");
 TextField param = new TextField();
-
+f.getToolbar().addCommandToLeftBar("Accueil", null, (ev)->{HomeForm h=new HomeForm(t);
+          h.getF().show();
+          });
 Button btn_chech= new Button("Chercher");
 btn_chech.addActionListener(new ActionListener() {
     @Override
@@ -86,7 +88,9 @@ btn_chech.addActionListener(new ActionListener() {
  //rating r = new rating();
 
  Container c = new Container(BoxLayout.y());
+ c.add(l3);
             c.add(Afficher_btn);
+            
             c.add(ajouter_btn);    
             
  Container c1 = new Container(BoxLayout.y());  

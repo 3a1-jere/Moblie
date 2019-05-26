@@ -46,7 +46,7 @@ public class ajou {
     Label photo;
     public ajou(Membre t) {
         f = new Form("Ajouter");
-         f.getToolbar().addCommandToRightBar("back", null, (ev)->{
+         f.getToolbar().addCommandToRightBar("Retour", null, (ev)->{
              Welcome w = new Welcome(t);
              w.getF().show();
 

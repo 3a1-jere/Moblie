@@ -36,7 +36,7 @@ public class AfficherOffre {
                
                Label lbl = new Label("Catégorie:"+l.getCategorie());  
                  Label lbl2 = new Label("Cible : "+(l.getCible())); 
-                 Label lbl3 = new Label("Taux de réduction:"+(l.getTaux()));
+                 Label lbl3 = new Label("Taux de réduction:"+(l.getTaux())+"%");
                  Label lbl4 = new Label("Date début : "+(l.getDate_debut()));
                   Label lbl5 = new Label("Date fin : "+(l.getDate_fin()));
                  Label nejma =new Label("              ************************           "); 

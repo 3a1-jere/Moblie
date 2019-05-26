@@ -72,12 +72,15 @@ public class AffichageAstuces {
      
      
       public AffichageAstuces(String titre, Membre t) {
-        
+        f.getToolbar().addCommandToLeftBar("Retour", null, (ev)->{Welcome h=new Welcome(t);
+          h.getF().show();
+          });
       
          serviceAstuces=new ServiceAstuces();
         astuces = serviceAstuces.Cherch(titre);
          if(astuces!=null && !astuces.isEmpty())
          {initi(t);}
+         
          
          
     }

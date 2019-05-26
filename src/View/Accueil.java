@@ -31,7 +31,7 @@ public class Accueil {
     
     public Accueil() {
         
-        f = new Form("Accueil ",BoxLayout.y());
+        f = new Form("Shopetal ",BoxLayout.y());
     
         
         tetat = new TextField("","pass");

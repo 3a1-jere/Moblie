@@ -6,5 +6,7 @@
     <image name="Shopping_cart_icon.svg.png"  />
     <theme name="Theme">
         <val key="@includeNativeBool" value="true" />
+        <gradient key="bgGradient" color1="13434828" color2="13434828" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="bgType" value="8" />
     </theme>
 </resource>
