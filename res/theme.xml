@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="10" useXmlUI="false">
+    <image name="a3.jpg"  />
+    <image name="depositphotos_1918636-stock-illustration-flowers-background-vertically.jpg"  />
+    <image name="Shopping_cart_icon.svg.png"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+    </theme>
+</resource>
