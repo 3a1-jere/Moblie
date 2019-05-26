@@ -61,6 +61,27 @@ public class AffichageAstuces {
          {initi(t);}
          
     }
+
+    public ArrayList<Astuces> getAstuces() {
+        return astuces;
+    }
+
+    public void setAstuces(ArrayList<Astuces> astuces) {
+        this.astuces = astuces;
+    }
+     
+     
+      public AffichageAstuces(String titre, Membre t) {
+        
+      
+         serviceAstuces=new ServiceAstuces();
+        astuces = serviceAstuces.Cherch(titre);
+         if(astuces!=null && !astuces.isEmpty())
+         {initi(t);}
+         
+         
+    }
+     
     
      private void initi(Membre t)
     
@@ -68,20 +89,16 @@ public class AffichageAstuces {
         int mm = Display.getInstance().convertToPixels(3);
   EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(1,1), false);
 
-         f = new Form("Liste des astuces", new BorderLayout());
+         f = new Form("List Astuces", new BorderLayout());
         
          
-         f.getToolbar().addCommandToLeftBar("Accueil", null, (ev)->{
-             HomeForm w = new HomeForm(t);
+         f.getToolbar().addCommandToRightBar("back", null, (ev)->{
+             Welcome w = new Welcome(t);
              w.getF().show();
 
           });
   
-         /*****recherchee*/
-           
-
-       
-/****/
+        
         
         ArrayList<Map<String, Object>> data = new ArrayList<>();
      

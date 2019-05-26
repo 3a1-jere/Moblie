@@ -152,7 +152,7 @@ f.show();
           
     
      astuce.addActionListener((e)->{
-        AffichageAstuces a=new AffichageAstuces(t);
+        Welcome a=new Welcome(t);
          String pick = "Flip"; 
             int duration=1000;
        

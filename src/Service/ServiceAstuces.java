@@ -33,10 +33,25 @@ public class ServiceAstuces {
         try {
             JSONParser j = new JSONParser();// Instanciation d'un objet JSONParser permettant le parsing du résultat json
 
-           
+            /*
+                On doit convertir notre réponse texte en CharArray à fin de
+            permettre au JSONParser de la lire et la manipuler d'ou vient 
+            l'utilité de new CharArrayReader(json.toCharArray())
+            
+            La méthode parse json retourne une MAP<String,Object> ou String est 
+            la clé principale de notre résultat.
+            Dans notre cas la clé principale n'est pas définie cela ne veux pas
+            dire qu'elle est manquante mais plutôt gardée à la valeur par defaut
+            qui est root.
+            En fait c'est la clé de l'objet qui englobe la totalité des objets 
+                    c'est la clé définissant le tableau de tâches.
+            */
             Map<String, Object> tasks = j.parseJSON(new CharArrayReader(json.toCharArray()));
                        
-        
+            
+            /* Ici on récupère l'objet contenant notre liste dans une liste 
+            d'objets json List<MAP<String,Object>> ou chaque Map est une tâche                
+            */
             List<Map<String, Object>> list = (List<Map<String, Object>>) tasks.get("root");
 
             //Parcourir la liste des tâches Json
@@ -95,12 +110,26 @@ public class ServiceAstuces {
         NetworkManager.getInstance().addToQueueAndWait(con);
         return listAstuces;
     } 
+      
+      public ArrayList<Astuces> Cherch(String titre){       
+        ConnectionRequest con = new ConnectionRequest();
+        
+        con.setUrl("http://localhost/Shopetal/web/app_dev.php/Front/astuces/find_api?titre="+titre);  
+        con.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                ServiceAstuces ser = new ServiceAstuces();
+                listAstuces = ser.parseListTaskJson(new String(con.getResponseData()));
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(con);
+        return listAstuces;
+    } 
     
     
        public void ajoutTask(Astuces ta) {
         ConnectionRequest con = new ConnectionRequest();// création d'une nouvelle demande de connexion
-        String Url = "http://localhost/Shopetal/web/app_dev.php/Front/astuces/new?Titre_Astuce=" + ta.getTitre_Astuce() + "&Type_Astuce=" + ta.getType_Astuce()+ "&Desc_Astuce=" + ta.getDesc_Astuce() ;// création de l'URL
-     
+        String Url = "http://localhost/Shopetal/web/app_dev.php/Front/astuces/new?Titre_Astuce="+ta.getTitre_Astuce()+"&Desc_Astuce="+ta.getDesc_Astuce()+"&Type_Astuce="+ta.getType_Astuce()+"&Image_Astuce="+ta.getImagefile() ;// création de l'URL
         con.setUrl(Url);// Insertion de l'URL de notre demande de connexion
 
         con.addResponseListener((e) -> {
